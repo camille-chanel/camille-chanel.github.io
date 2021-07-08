@@ -19,9 +19,9 @@ locale                   : "en-US"
 title                    : ""
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "Camille Crumpton"
+description              : "Computer Science at UTK"
+url                      : "https://camille-chanel.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Camille Crumpton"
   avatar           : "/assets/images/bio-image.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Computer Science faculty at the University of Tennessee."
+  bio              : "Computer Science faculty member at the University of Tennessee."
   location         : "Knoxville, TN"
   email            : "ccrumpto@utk.edu"
   links:
