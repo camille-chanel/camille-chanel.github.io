@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "sunrise" # "air", "aqua", "contrast", "dark", "defau
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : ""
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Your Name"
@@ -102,10 +102,10 @@ analytics:
 # Site Author
 author:
   name             : "Camille Crumpton"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  avatar           : "/assets/images/bio-image.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Computer Science faculty at the University of Tennessee."
   location         : "Knoxville, TN"
-  email            :
+  email            : "ccrumpto@utk.edu"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
