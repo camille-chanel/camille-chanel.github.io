@@ -68,12 +68,14 @@ The first two lines of our main program will always be the same -
 
 ```java
 class NameOfProgramHere {
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
-   }
+    }
 }
 ```
-"NameOfProgramHere" is substituted for the name of your program. It is also called the "class name" since it comes after the keyword "class". It must be one word, and by Java convention, it is capitalized ***camelCase***. 
+"NameOfProgramHere" is substituted for the name of your program. It is also called the "class name" since it comes after the keyword "class". It must be one word, and by Java convention, it is ***CamelCase***. CamelCase is a naming convention where the first letter of every word is capitalized and no spaces are used. In comparison, another naming convention called ***snake_case*** uses underscores instead of spaces, and all words are lowercase. 
 
-The first program we write will be a very simple one. We will print one line to the screen.
+Also notice that every open curly brace must have a corresponding closing curly brace.
+
+We will call our first program GoVols and it will be a very simple one. We will print one line to the screen.
 
