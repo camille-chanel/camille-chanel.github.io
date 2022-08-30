@@ -79,3 +79,31 @@ Also notice that every open curly brace must have a corresponding closing curly 
 
 We will call our first program GoVols and it will be a very simple one. We will print one line to the screen.
 
+To print "Go Vols", we use `System.out.println("Go Vols");` and we can substitute "Go Vols" with any other phrase in quotes to print that out as well. To print "Rocky Top", we would write
+`System.out.println("Rocky Top");`
+
+Using print vs println is an important distinction - be sure to read that in your online textbook.
+
+We place the print line, indented, inside the two sets of curly braces on it's own line. Your end result should look like this:
+
+```java
+class GoVols {
+    public static void main(String[] args) {
+        System.out.println("Go Vols");
+    }
+}
+```
+
+#### Running the Program
+
+Lastly, we need to run the program to see our output put to the screen, as expected. If you have VS Code running correctly, you should see a "Run" button beneath the class name, and a play button on the far right. If you do not see these buttons, many times closing the file within VS Code (remember to save), closing VS Code itself, and then opening it again will do the trick.
+
+Press either the Run button or the play button.
+
+<img src="/images/lectures/GoVols.png" width="800" />
+
+After running the program, you should see your output in the "Terminal" tab.
+
+<img src="/images/lectures/GoVolsOutput.png" width="800" />
+
+All of the output before the "Go Vols" - the stuff that looks pretty random - is the command that VS Code is running to get your program going. You can ignore that. If you have any errors, they will show up here instead of "Go Vols". You can also see a 1 next to problems - VS Code is upset this isn't a "project file". That is absolutely what we want, so seeing the "problem" is normal.
