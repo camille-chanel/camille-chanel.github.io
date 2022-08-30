@@ -107,3 +107,5 @@ After running the program, you should see your output in the "Terminal" tab.
 <img src="/images/lectures/GoVolsOutput.png" width="800" />
 
 All of the output before the "Go Vols" - the stuff that looks pretty random - is the command that VS Code is running to get your program going. You can ignore that. If you have any errors, they will show up here instead of "Go Vols". You can also see a 1 next to problems - VS Code is upset this isn't a "project file". That is absolutely what we want, so seeing the "problem" is normal.
+
+**Congratulations - you've written and run your first Java program!**
