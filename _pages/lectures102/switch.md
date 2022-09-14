@@ -5,8 +5,6 @@ author_profile: false
 classes: wide
 ---
 
-# Switch Statements
-
 ## The Case for Switch Statements
 
 When we think of conditional statements as a programming tool, the first thought that comes to mind is often if/else statements. However, there is simpler way of programming if **all** the conditional statements are checking for **equality** of one particular variable. For example, a variable "weather" can be set to 'r' for raining, 's' for snowing, 'o' for overcast, and 'c' for clear, 'i' for ice. Instead of writing:
@@ -244,4 +242,4 @@ switch (puzzleDifficulty) {
 ```
 
 #### Aside: Naming Enums
-You'll note that I named the enum "Level" and not "Levels". This is by convention. You'll want your enum name to be singular, because puzzleDifficulty cannot hold more than one value at a time. Just like declaring an integer is `int data`, not `ints data` (even the integer type has a range of possible values).
+You'll note that I named the enum "Level" and not "Levels". This is by convention. You'll want your enum name to be singular, because puzzleDifficulty cannot hold more than one value at a time. Just like declaring an integer is `int data`, not `ints data` (even though the integer type has a range of possible values).
