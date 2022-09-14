@@ -10,7 +10,10 @@ main:
     url: /teaching/ 
 
   - title: "CS 101"
-    url: /cs101/   
+    url: /cs101/ 
+
+  - title: "CS 102"
+    url: /cs102/   
     
   - title: "Portfolio"
     url: /portfolio/
