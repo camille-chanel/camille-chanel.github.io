@@ -187,7 +187,7 @@ switch (number) {
         break;
 }
 ```
-Your snow code must not be instantly recognizable as snow code! Then, before you know it, it takes 20 whole minutes to understand code you wrote 5 days ago.
+Your "snow" case may not be instantly recognizable as code about snow once the comment is removed! Then, before you know it, it takes 20 whole minutes to understand code you wrote 5 days ago.
 
 This is where **enums** become a handy solution to our readability issue and desire to have cases beyond single letters or numbers.
 
