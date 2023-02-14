@@ -87,6 +87,7 @@ We will learn a handful of commands in this class. The following are ones you sh
 | mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **moves**_SOURCE_ into an already existing _DESTINATION_. This can be used to move a file into a directory, or a directory into another directory. |
 | rm _dirName_          | This deletes the directory called _dirName_. The directory must be empty before it's deleted.                                                                                                             |
 
+
 # How We Will Program in CS102
 Everything we've covered so far is just about **navigating a new operating system using just the command line**. We haven't talked about coding up a program at all! That's what we will cover next.
 
@@ -132,6 +133,7 @@ Once you are in insert mode, you can begin typing. Again, remember you can't use
 Eventually, you will need to save your file. Vim does NOT automatically save your file, and if your computer dies or exit the shell (terminal), only the last version saved will be accessible. In order to save and/or quit Vim, first press **esc** (escape) to return to normal mode. Then type **:wq** to save (write) and quit Vim. Typing **:w** will save without quitting and **:q** will quit without saving.
 
 The following chart is a summary of the bare-minimum commands to make a file in Vim:
+
 | Command | Description                                           |
 |---------|-------------------------------------------------------|
 | i       | enter **insert** mode                                 |
