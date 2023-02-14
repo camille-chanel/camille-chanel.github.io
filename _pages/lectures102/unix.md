@@ -34,7 +34,7 @@ And on a PC, I would use the File Explorer:
 
 <img src="/images/lectures/fileExplorerEx.png" width="700" />
 
-With the command line, again I would just type **cd Documents** if I'm in a folder that contains Programs. (I'll cover what crumpto@CrumptonLaptop:~$ means in the next section).
+With the command line, again I would just type **cd Documents** if I'm in a folder that contains Documents. (I'll cover what ccrumpto@CrumptonLaptop:~$ means in the next section).
 
 ```console
 ccrumpto@CrumptonLaptop:~$ cd Documents
@@ -42,7 +42,33 @@ ccrumpto@CrumptonLaptop:~$ cd Documents
 You might be asking, how do I get to this place where I can type in commands? That's exactly what we will cover next.
 
 ### How to Access the Command Line Interface
-Accessing the command line will be different if you are working on a PC versus a Mac. During the first lab section, the TAs will work with everyone to verify you have your computer setup to access a command line interface.
+Accessing the command line will be different if you are working on a PC versus a Mac. During the first lab section, the TAs will work with everyone to verify you have your computer setup to access a command line interface. If you have a Mac, it's fairly easy because MacOS is built on top of Linux. Go to your Launchpad and search for the "Terminal" program. With PCs, Windows 10 and beyond thankfully has integrated what's called WSL (Windows Subsystem for Linux).
+
+### Command Line Prompt
+When you open up a terminal window, you will be faced with a string of text and a blinking cursor. What is this, and what does it mean?
+
+```console
+ccrumpto@CrumptonLaptop:~$ 
+```
+This is called the "command line prompt". A "prompt" in general is a request for data. We prompt the user for data all the time in our programs when we use an output statement asking for information.
+In this case, the prompt is waitin for a command for us to type in, like ```cd Documents``` above.
+
+The string of text that is the prompt contains information about our system:
+
+```ccrumpto``` is my username for my computer.
+
+```CrumptonLaptop``` is the name of my machine.
+
+```@``` separates my username from my machine name.
+
+```:``` denotes that after this symbols, your current directory is shown.
+
+```~``` is shorthand for my home directory. If I was currently in Programs, then ```Programs``` would be shown instead. Most machines just show the current (i.e. "working directory") directory by default, but some systems like Hydra/Tesla show the whole path from your home directory to your current directory, like ```~/cs102/Programs```. You can change settings to your preferences.
+
+```$``` is sign that the prompt has ended and you can begin typing. Depending on your shell (terminal program) and what type of account you are logged into, you may see a different symbol like ```>``` or ```#``` or ```%```. Regardless, it's pretty obvious where the prompt ends because that's where you cursor is blinking.
+
+Different versions of the command line will be slightly different, but in general you'll see something like
+```username@machinename:path$```
 
 ### Commands to Know
 We will learn a handful of commands in this class. The following are ones you should know for directory navigation and file management:
@@ -58,7 +84,7 @@ We will learn a handful of commands in this class. The following are ones you sh
 | clear                 | Clears screen                                                                                                                                                                                             |
 | cp file1 file2        | Copies file1 to a new file named file2                                                                                                                                                                    |
 | mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **re-names** _SOURCE_ to the new name _DESTINATION_. This can be used to rename files or directories.                                              |
-| mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **moves**_SOURCE_ into an already existing _DESTINATION_. This can be used to move a file into a directory, or a directory into another directory. |
+| mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **moves** _SOURCE_ into an already existing _DESTINATION_. This can be used to move a file into a directory, or a directory into another directory. |
 | rm _dirName_          | This deletes the directory called _dirName_. The directory must be empty before it's deleted.                                                                                                             |
 
 # How We Will Program in CS102
