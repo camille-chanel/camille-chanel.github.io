@@ -68,8 +68,7 @@ The string of text that is the prompt contains information about our system:
 
 ```$``` is sign that the prompt has ended and you can begin typing. Depending on your shell (terminal program) and what type of account you are logged into, you may see a different symbol like ```>``` or ```#``` or ```%```. Regardless, it's pretty obvious where the prompt ends because that's where you cursor is blinking.
 
-Different versions of the command line will be slightly different, but in general you'll see something like
-```username@machinename:path$```
+Different versions of the command line will be slightly different, but in general you'll see something like ```username@machinename:path$```.
 
 ### Commands to Know
 We will learn a handful of commands in this class. The following are ones you should know for directory navigation and file management:
