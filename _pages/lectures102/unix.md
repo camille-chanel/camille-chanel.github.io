@@ -85,7 +85,7 @@ We will learn a handful of commands in this class. The following are ones you sh
 | clear                 | Clears screen                                                                                                                                                                                             |
 | cp file1 file2        | Copies file1 to a new file named file2                                                                                                                                                                    |
 | mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **re-names** _SOURCE_ to the new name _DESTINATION_. This can be used to rename files or directories.                                              |
-| mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **moves** _SOURCE_ into an already existing _DESTINATION_. This can be used to move a file into a directory, or a directory into another directory. |
+| mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **moves**_SOURCE_ into an already existing _DESTINATION_. This can be used to move a file into a directory, or a directory into another directory. |
 | rm _dirName_          | This deletes the directory called _dirName_. The directory must be empty before it's deleted.                                                                                                             |
 
 # How We Will Program in CS102
