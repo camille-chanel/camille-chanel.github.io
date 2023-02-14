@@ -3,6 +3,7 @@ permalink: /lectures102/unix/
 title: "The Unix Operating System"
 author_profile: false
 classes: wide
+full-width: true
 ---
 
 An operating system is the underlying program controlling the basic functionality of the computer. Most everyone is probably familiar with the two most popular commerical operating systems in the world - Windows and MacOS (we also use operating systems on our phones - Android and iOS).
