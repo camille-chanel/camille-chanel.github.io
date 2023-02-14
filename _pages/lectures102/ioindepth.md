@@ -109,7 +109,15 @@ else {
 To check for bad input, you must check if cin failed. Either wrap the cin call inside an if statement, or check with **cin.fail()**. If cin *did* fail, make sure to clear the error state before reading in any other input by using **cin.clear()**. Then move past the bad input by using **cin.ignore(numeric_limits<streamsize>::max(), '\n') with #include \<limits\>**. 
 
 ## Cin.get()
-
+So far, we have just been using cin with the extraction operator, >>, which stops when whitespace is read. What if we want to read and save whitespace with cin, or just read a single character? To solve this, we can use **cin.get()**.
+There are a few ways of using this function, but one way to use it is by reading input char by char.
+If I type "AB" as my initials, then 'A' will be saved in c1, and 'B' will be saved in c2.
+```c++
+char c1, c2;
+cout << "What are your initials? ";
+cin.get(c1);
+cin.get(c2);
+```
 # Output
 
 ## Printf & Formatting
