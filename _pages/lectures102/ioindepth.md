@@ -39,7 +39,7 @@ Well, not really. If 20 and 40 are the input, then using cin.clear() is pointles
 
 So, we need an if statement to check if we read the correct data type! We used the similar logic in Java - remember myScanner.hasNextInt()? 
 
-With C++, we can accomplish this two ways. The first way is wrapping cin >> i inside an if statement. Each cin statement is actually a Boolean value that returns true/false if the cin statement succeeded/failed. Wrapping it in an if statement checks if the cin succeeds. See this example:
+With C++, we can accomplish this in two ways. The first way is wrapping ```cin >> i``` inside an if statement. Each cin statement is actually a Boolean value that returns true/false if the cin statement succeeded/failed. Wrapping it in an if statement checks if the cin succeeds. See this example:
 
 ```c++
 int i, j; 
@@ -77,13 +77,46 @@ else
 ```
 Still no! Try with Fred and 44.
 
-The second cin call failed just like the first one does, even though 44 is an integer!! What?! This is because when you call cin.clear() it resets cin out of it's panicked state, but it does **not** move cin past the bad input. It is still trying to read "Fred". To fix this, you have to go ahead and read the erroneous integer as a garbage string before moving on OR use **cin.ignore()**. I recommend using cin.ignore() - who knows how large that data be that you will never use. Also, it's better for code readability.
+The second cin call failed just like the first one does, even though 44 is an integer!! What?! This is because when you call cin.clear() it resets cin out of its panicked state, but it does **not** move cin past the bad input. It is still trying to read "Fred". To fix this, you have to go ahead and read the erroneous integer as a garbage string before moving on OR use **cin.ignore()**. I recommend using cin.ignore() - who knows how large that garbage data could be. Also, it's better for code readability.
 
-To ignore all characters until '\n' (the user pressing enter), you will write
+```cin.ignore()``` takes two arguments, a number and a character. It will ignore until it reads the specified character OR until it's already ignored X number of characters, whichever comes first. For example, ```cin.ignore(5, 'r')``` will ignore 5 characters or will ignore until it reads an 'r', whichever comes first.
+
+For example, consider this program.
+```c++
+string codeName;
+cout << "Type your last name: ";
+cin.ignore(5, 'r');
+cin >> codeName;
+cout << "Your codename: " << codeName << endl;
+```
+
+The console would look like this:
+```console
+Type your last name: Crumpton
+Your codename: umpton
+```
+
+We ignore until we 'r', then it saves the rest of the input. Let's change the character to ignore to 'q'.
+```c++
+string codeName;
+cout << "Type your last name: ";
+cin.ignore(5, 'q');
+cin >> codeName;
+cout << "Your codename: " << codeName << endl;
+```
+
+The console would look like this:
+```console
+Type your last name: Crumpton
+Your codename: ton
+```
+Since we read 5 characters and there is no 'q' so far, we stop ignoring at 5 characers then save off the rest of the string.
+
+Most times when you use ```cin.ignore()```, it's to ignore bad input. That input could be incredibly long, and at times, impossible to know how long. To ignore an infinite amount of characters (or more precisely, the maximum amount of input possible) until '\n' (the user pressing enter), we need to ignore the maximum of the streamsize until we reach '\n'. You will write
 ```c++
 cin.ignore(numeric_limits<streamsize>::max(), '\n');
 ```
-You **must** remember to #include <limits> in order to use numeric limits!! VS Code might do this automatically for you, but your code will **NOT COMPILE** on the Hydra/Tesla machines without it! This can result in a 0.
+You **must** remember to ```#include <limits>``` in order to use numeric limits!! VS Code might do this automatically for you, but your code will **NOT COMPILE** on the Hydra/Tesla machines without it! This can result in a 0.
 
 The final, working snippet:
 ```c++
@@ -109,7 +142,7 @@ else {
 To check for bad input, you must check if cin failed. Either wrap the cin call inside an if statement, or check with **cin.fail()**. If cin *did* fail, make sure to clear the error state before reading in any other input by using **cin.clear()**. Then move past the bad input by using **cin.ignore(numeric_limits<streamsize>::max(), '\n') with #include \<limits\>**. 
 
 ## Cin.get()
-So far, we have just been using cin with the extraction operator, >>, which stops when whitespace is read. What if we want to read and save whitespace with cin, or just read a single character? To solve this, we can use **cin.get()**.
+So far, we have just been using cin with the extraction operator, >>, which stops when whitespace is read. What if we want to read and save whitespace with cin, or just read a single character from a string? To solve this, we can use **cin.get()**.
 There are a few ways of using this function, but one way to use it is by reading input char by char.
 If I type "AB" as my initials, then 'A' will be saved in c1, and 'B' will be saved in c2.
 ```c++
@@ -121,7 +154,7 @@ cin.get(c2);
 # Output
 
 ## Printf & Formatting
-
+Printf() is a C-language function that we can use in C++ for formatting. While the shortcut can look unreadable, many students prefer it because it's the same shorthand they learned for System.out.format() in Java.
 ## Formatting with Cout & \<iomanip>
 Manipulators are tools that allow us to edit streams (i.e. output streams, file streams, etc) to polish our formatting. Some examples of I/O manipulation would be left-justifying text, or rounding data to a particular decimal place. Manipulators are found in \<iostream> and \<iomanip>.
 
