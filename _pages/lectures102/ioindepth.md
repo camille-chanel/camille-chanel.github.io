@@ -110,9 +110,9 @@ The console would look like this:
 Type your last name: Crumpton
 Your codename: ton
 ```
-Since we read 5 characters and there is no 'q' so far, we stop ignoring at 5 characers then save off the rest of the string.
+Since we read 5 characters and there is no 'q' so far, we stop ignoring at 5 characters then save the rest of the string.
 
-Most times when you use ```cin.ignore()```, it's to ignore bad input. That input could be incredibly long, and at times, impossible to know how long. To ignore an infinite amount of characters (or more precisely, the maximum amount of input possible) until '\n' (the user pressing enter), we need to ignore the maximum of the streamsize until we reach '\n'. You will write
+Most times when you use ```cin.ignore()```, it's to ignore bad input. That input could be incredibly long, and at times, impossible to know how long. To ignore the maximum amount of input possible until '\n' (the user pressing enter), we need to ignore the maximum of the streamsize until we reach '\n'. You will write
 ```c++
 cin.ignore(numeric_limits<streamsize>::max(), '\n');
 ```
