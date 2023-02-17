@@ -141,9 +141,9 @@ else {
 ### Summary
 To check for bad input, you must check if cin failed. Either wrap the cin call inside an if statement, or check with **cin.fail()**. If cin *did* fail, make sure to clear the error state before reading in any other input by using **cin.clear()**. Then move past the bad input by using **cin.ignore(numeric_limits<streamsize>::max(), '\n') with #include \<limits\>**. 
 
-## Cin.get()
-So far, we have just been using cin with the extraction operator, >>, which stops when whitespace is read. What if we want to read and save whitespace with cin, or just read a single character from a string? To solve this, we can use **cin.get()**.
-There are a few ways of using this function, but one way to use it is by reading input char by char.
+## Using cin.get()
+So far, we have just been using cin with the extraction operator, >>, which skips over whitespace. What if we want to read and save whitespace with cin, or just read a single character from a string from console input? One way to do this is by using **cin.get()**.
+There are a few ways of using this function, but one way is by reading input char by char.
 If I type "AB" as my initials, then 'A' will be saved in c1, and 'B' will be saved in c2.
 ```c++
 char c1, c2;
@@ -151,10 +151,40 @@ cout << "What are your initials? ";
 cin.get(c1);
 cin.get(c2);
 ```
+Compare this to using the extraction operator.
+```c++
+char c1, c2;
+cout << "What are you initials? ";
+cin >> c1 >> c2;
+```
+These snippets will behave differently depending on if you put a space between your initials. If I type "AB" (no space), then ```cin.get()``` will save c1 as 'A' and c2 as 'B'. If I type "A B", then ```cin.get()``` will save c1 as 'A' and c2 as ' '. ```cin.get()``` reads whitespace, whereas the extraction operator skips over it!
+
+Depending on how you need to read data, ```cin.get()``` might be useful if you need the whitespace.
+
 # Output
 
 ## Printf & Formatting
-Printf() is a C-language function that we can use in C++ for formatting. While the shortcut can look unreadable, many students prefer it because it's the same shorthand they learned for System.out.format() in Java.
+```printf()``` is a C-language function that we can use in C++ for formatting. While the shortcut can look unreadable, many students prefer it because it's the same shorthand they learned for ```System.out.format()``` in Java. With ```printf()```, we can round numbers, give a specified width to print in, pad with leading zeros, and left/right justify.
+If you need a review of the format specifiers for ```System.out.format()```, ask a TA or instructor. Below is a reference table of the specifiers for review.
+
+| Format Specifier | Data Type                  |
+|------------------|----------------------------|
+| %d               | integer                    |
+| %c               | character                  |
+| %f               | float (or "small" doubles) |
+| %lf              | double                     |
+| %e               | scientific notation        |
+| %s               | string                     |
+| %%               | prints '%' character       |
+
+The only major difference you'll encounter regularly with ```printf()``` versus what you learned in Java is the treatment of strings. ```printf()``` is a c-style function, and the C language doesn't have strings. All strings are just arrays of chars (I'll call an array of chars "C-style strings"). So when we use a C++ string in printf, we need to convert it to a C-style string. We use ```.c_str()``` to do this conversion.
+
+```c++
+string text = "Go VOLS";
+    printf("%s\n", text.c_str());
+```
+If you don't use the .c_str() method, you will get a compile error.
+
 ## Formatting with Cout & \<iomanip>
 Manipulators are tools that allow us to edit streams (i.e. output streams, file streams, etc) to polish our formatting. Some examples of I/O manipulation would be left-justifying text, or rounding data to a particular decimal place. Manipulators are found in \<iostream> and \<iomanip>.
 
