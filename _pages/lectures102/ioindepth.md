@@ -167,15 +167,14 @@ Depending on how you need to read data, ```cin.get()``` might be useful if you n
 ```printf()``` is a C-language function that we can use in C++ for formatting. While the shortcut can look unreadable, many students prefer it because it's the same shorthand they learned for ```System.out.format()``` in Java. With ```printf()```, we can round numbers, give a specified width to print in, pad with leading zeros, and left/right justify.
 If you need a review of the format specifiers for ```System.out.format()```, ask a TA or instructor. Below is a reference table of the specifiers for review.
 
-| Format Specifier | Data Type                  |
-|------------------|----------------------------|
-| %d               | integer                    |
-| %c               | character                  |
-| %f               | float (or "small" doubles) |
-| %lf              | double                     |
-| %e               | scientific notation        |
-| %s               | string                     |
-| %%               | prints '%' character       |
+| Format Specifier | Data Type            |
+|------------------|----------------------|
+| %d               | integer              |
+| %c               | character            |
+| %f               | float (double)       |
+| %e               | scientific notation  |
+| %s               | string               |
+| %%               | prints '%' character |
 
 The only major difference you'll encounter regularly with ```printf()``` versus what you learned in Java is the treatment of strings. ```printf()``` is a c-style function, and the C language doesn't have strings. All strings are just arrays of chars (I'll call an array of chars "C-style strings"). So when we use a C++ string in printf, we need to convert it to a C-style string. We use ```.c_str()``` to do this conversion.
 
@@ -185,9 +184,82 @@ string text = "Go VOLS";
 ```
 If you don't use the .c_str() method, you will get a compile error.
 
-## Formatting with Cout & \<iomanip>
-Manipulators are tools that allow us to edit streams (i.e. output streams, file streams, etc) to polish our formatting. Some examples of I/O manipulation would be left-justifying text, or rounding data to a particular decimal place. Manipulators are found in \<iostream> and \<iomanip>.
+To see all the specifiers and to review shorthand for formatting, visit the [C++ reference page](https://cplusplus.com/reference/cstdio/printf/).
 
-#### \<iostream> Manipulators
+## Formatting with cout
+Manipulators are tools that allow us to edit streams (i.e. console output streams, file streams, etc) to polish our formatting. You can use these manipulators to format console output instead of using printf(). Manipulators are found in \<iomanip> and \<iostream>.  Place the manipulator after cout and between << operators, such as
 
+```c++
+cout << showpos << 3.14;
+```
 
+### Manipulators
+
+| Manipulator           | Description                                                                                                                                                                       |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| showpoint noshowpoint | Determines whether a decimal point (and numbers after) are shown or not for floating point.                                                                                       |
+| showpos noshowpos     | Determines whether the plus sign (+) is shown with positive numbers.                                                                                                              |
+| fixed scientific      | Determines whether numbers are displayed in scientific notation or not. If you use other manipulators like setprecision(), scientific notation is defaulted.                      |
+| left right            | Determines left or right justification.                                                                                                                                           |
+| dec hex oct           | Determines the base for integers (base 10 - decimal, base 16 - hexadecimal, base 8 - octal). This also allows for reading input such as "2A" to be read with cin as a hex number. |
+| endl                  | Outputs '\n' and flushes the output stream.                                                                                                                                       |
+| setw()                | Changes the width of the next field **ONLY**.                                                                                                                                     |
+| setprecision()        | Changes float point precision (use with fixed to not see scientific notation).                                                                                                    |
+| setfill('')           | Changes what character is used to fill extra spaces in a field when using setw().                                                                                                 |
+
+As a reminder, ```setw()``` works just like the field width setting in ```System.out.format()``` in Java. It sets a _minimum_. If we use ```setw(15)``` to print the string "Hello World", the string itself is 11 characters long. That means 4 extra spaces will be placed before or after "Hello World" (depending on your left/right justification) to make a field of 15 characters wide. By default, C++ uses right justification, so you will see
+```console
+    Hello World
+```
+If a string is longer than the specified field width, the width is ignored and the whole string is printed.
+
+**WARNING**: Using ```setprecision()``` to have a specific number of decimal places will require you to use ```fixed``` as well. Otherwise, you will have output in scientific notation with X significant digits.
+For example,
+```c++
+double price1 = 283.8565;
+double price2 = 21.517;
+cout << setprecision(2) << price1 << " " << price2 << endl;
+```
+will output
+```console
+2.8e+02 22
+```
+
+**WARNING**: Note that ```setw()``` is **not** persistent, whereas all the other manipulators are. This means that once a manipulator is set, it will change every piece of output. ```setw()``` will only apply to the very next variable/expression printed. 
+For example,
+```c++
+double price1 = 3.8565;
+double price2 = 21.517;
+cout << fixed << setprecision(2) << setw(10) << price1 << " " << price2 << endl;
+```
+will output
+```console
+      3.86 21.52
+```
+Here, price1 is placed in a field 10 characters wide, so you see 6 spaces before price1. Not the case with price2, because we would need to use ```setw()``` again. However, ```setprecision()``` is persistent (like all other manipulators), so both prices are rounded to two decimal places.
+
+### Examples
+Print a list of names and GPA with the format "Last Name, First Name GPA" where last name and first name are printed in fields 20 wide right-justified, and GPA will show 2 decimal places (rounded if needed).
+
+```c++
+string <vector> lNames;
+string <vector> fNames;
+double <vector> gpa;
+
+for (int i = 0; i < lNames.size(); i++) {
+    cout << fixed << setprecision(2);
+    cout << setw(20) << lNames[i] << ", " << setw(20) << fNames[i] << " " << gpa[i] << endl;
+}
+```
+
+Print the same thing, only with last names and first names left justified.
+```c++
+string <vector> lNames;
+string <vector> fNames;
+double <vector> gpa;
+
+for (int i = 0; i < lNames.size(); i++) {
+    cout << fixed << setprecision(2) << left;
+    cout << setw(20) << lNames[i] << ", " << setw(20) << fNames[i] << " " << gpa[i] << endl;
+}
+```
