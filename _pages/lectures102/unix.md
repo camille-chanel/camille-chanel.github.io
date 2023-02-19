@@ -87,6 +87,17 @@ We will learn a handful of commands in this class. The following are ones you sh
 | mv SOURCE DESTINATION | There are two ways to use the "mv" command! (Move) One **moves**_SOURCE_ into an already existing _DESTINATION_. This can be used to move a file into a directory, or a directory into another directory. |
 | rm _dirName_          | This deletes the directory called _dirName_. The directory must be empty before it's deleted.                                                                                                             |
 
+### Absolute vs Relative Path
+With many of these commands, you can write the **path** to the directory/file needed. The **absolute path** is the path from the root directory (very top directory) all the way to the directory/file. The absolute path will always begin with a forward slash. This first slash is the symbol for the root directory, and the slashes after that separate parent and child directories.
+```/Users/ccrumpto/cs102/programs/lab1.cpp``` is the absolute path to this file called lab1.cpp. 
+
+The **relative path** starts at the current working directory instead of the root. For example, if I'm in the ```cs102``` directory, then the relative path to lab1.cpp would be ```programs/lab1.cpp```. Again note that we do not begin the relative path with a forward slash.
+
+You can use paths with these commands. For example, if I'm in the ```ccrumpto``` directory and need to change to the ```programs``` directory, I can do
+```console
+cd cs102/programs
+```
+and use the relative path to navigate there.
 
 # How We Will Program in CS102
 Everything we've covered so far is just about **navigating a new operating system using just the command line**. We haven't talked about coding up a program at all! That's what we will cover next.
