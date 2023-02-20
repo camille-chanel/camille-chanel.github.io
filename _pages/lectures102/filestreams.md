@@ -101,7 +101,52 @@ Just like reading from files, I've boiled writing to files into 5 basic steps. I
 5. **Close** the output file stream
 
 ## Step 1: Creating an Output File Stream Object
+Declaring an outupt file stream object is the first step in writing to a file. I typically name the input file stream object ```fout``` to remind myself that I use the same operators as ```cout```. However, you can choose other names. This object is type ```ofstream``` - stands for "output file stream".
+
+Example:
+```c++
+ofstream fout;
+```
+
 ## Step 2: Connecting the Stream Using .open()
+Similarly to input file reading, next is connecting the output file stream to the file itself. We use the ```.open(string f)``` method on the output file stream object to do this. ```.open()``` takes a single argument, the filename. 
+
+Example, assuming an ```ofstream fout``` has been declared:
+```c++
+string filename = "myoutput.txt";
+fout.open(filename);
+```
+
+**Note**: You can combine Step 1 and Step 2 in a single line. You do this by using the **ofstream constructor**, taking the filename as an argument. Using the constructor means **you don't use .open() at all**. I typically don't do this, because I like to declare all my variables/objects immediately at the top of the main function. 
+
+Example:
+```c++
+ofstream fout("myoutput.txt");
+```
+
+**WARNING! This step either creates the file OR overwrites the file if it already exists! There is no undo, so be VERY CAREFUL not to overwrite important files!**
+
 ## Step 3: Error Checking Step Two
+Next, you'll want to make sure that the file stream connected to the file. You'll use the same methods as described for input file reading, ```.fail()``` and ```is_open()```. Scroll back up for more information.
+
+Example 1:
+```c++
+if (fout.fail()) {
+    cerr << "File failed to open for writing." << endl;
+}
+```
+
 ## Step 4: Writing to the File
+Finally, time to write to the file! Just like using ```cout```, you'll use the insertion operator, << (named for inserting data into the file stream). You can also use **formatting** when writing the file with ```#include <iomanip>```.
+
+Example:
+```c++
+double pi = 3.1415;
+fout << fixed << setprecision(2) << setw(10) << pi << endl;
+```
+
 ## Step 5: Closing the Output File Stream
+Finally, when you are done writing to the file, remember to close the output file stream. An output file stream stores data in RAM (Random Access Memory) first, because writing to the file is "slow" (relative to other operating system processes). This gives the OS (operating system) time to write to the file when ready.
+
+If you don't close the output stream file, there is no guarantee that the data will be written to the file.
+
