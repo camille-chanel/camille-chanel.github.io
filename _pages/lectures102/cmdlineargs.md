@@ -19,7 +19,7 @@ You may also see `char *argv[]` instead of `char **argv`, i.e.
 int main(int argv, char *argv[])
 ```
 
-## argc
+# argc
 ```argc``` is an integer that stands for **argument count**. It stores the _number_ of arguments on the command line, including the program executable itself.
 
 The following graphic is an example of running a program with some command line arguments. Here, ```argc``` will equal 5 when I run the following on the command line:
@@ -28,7 +28,7 @@ The following graphic is an example of running a program with some command line 
 ./myprogram 10 20.22 30 file.txt
 ```
 
-## argv
+# argv
 ```argv``` is an array of c-style strings that stores the **argument values**. Each index into this array holds an argument from the command line, including the program executable itself. Using the example above, the following value will be held in ```argv```:
 
 | Index     | Value       |
@@ -39,7 +39,7 @@ The following graphic is an example of running a program with some command line 
 | `argv[3]` | 30          |
 | `argv[4]` | file.txt    |
 
-#### A Note on C-Style Strings
+### A Note on C-Style Strings
 A c-style string is an array of chars. The C programming language doesn't have the string class like we do in C++. (Why? Because C doesn't have classes at all.)
 
 While this may seem uneventful (a string really is just some characters in a row, right?), the strings give use a lot of functionality we take for granted. It's easy to see how long the string is by using the .size() method. Primitive data types, like ints and arrays, don't have methods.
@@ -59,14 +59,14 @@ string name = "Happy";
 printf("My name is %s\n", name.c_str());
 ```
 
-## Using argc/argv in Programs
+# Using argc/argv in Programs
 
 When you use arguments on the command line, there are certain steps you usually will take with the arguments before using them in your program. Generally, these steps are
 
 1. Error Checking the Argument Count
 2. Changing the Arguments' Data Types (istringstreams)
 
-### Step 1: Error Checking Argc
+## Step 1: Error Checking Argc
 
 While it's not necessary to error check argc to make your program work, it's incredibly helpful to do immediately as a reminder to put your arguments on the command line. At this point, you might be so used to writing `./programname` that it's very easy to forgot that a certain program needs arguments. Without an error message, you may think the program has a bug if nothing happens, when it's really operator (user) error.
 
@@ -78,14 +78,14 @@ if (argc != 3) {
 }
 ```
 
-### Step 2: Getting the Right Data Types
+## Step 2: Getting the Right Data Types
 Once you've checked argc, you'll begin looking at what you received as data with argv. Depending on your program, you might want to keep the data as strings. You're in luck that this is simple - it's covered above in "A Note on C-Style Strings". You just set that particular argv index equal to a C++ string.
 
 What gets tricker is when the data is numerical, and you need it stored in a numerical data type. It's been given to you as a c-style string - not ideal for calculating an average or summing up values. Therefore, you'll want to change the data storage from a c-style string to an int or a double.
 
 How do you do this? **Well, you have options.**
 
-#### atof(), stod(), stoi()
+### atof(), stod(), stoi()
 These are functions that allow you to change strings to numerical values. `atof()` = array (c-style string) to float, `stod()` = string to double, `stoi` = string to int.
 
 ```c++
@@ -104,7 +104,7 @@ int num3 = stoi(str3);
 
 -Errors. There are some strings that will break these functions. For example, a string like "123abc" **should fail** with stoi(), but it doesn't. It saves 123 as the int. "abc123" does fail - the program will output a runtime error. **Because strings like "123abc" succeed with stoi(), many people consider this function to have unsatisfactory error checking.**
 
-#### String Streams
+### String Streams
  As you can see, sometimes you won't be able to use those nice functions. Instad, you'll need use string streams, specifically istringstreams. You'll use the argument values as the string input.
  
  Would you rather use `stoi()` and stringstreams make you nervous? (There's no need to be, but some people find them intimidating). Write your own version of `stoi()` to just use stringstreams once.
@@ -119,7 +119,7 @@ static int stoi(string & s) {
 }
 ```
 
-## Example
+## Examples
 
 This program takes 2 integers on the command line and sums them together. It uses a string stream to convert the arguments from strings to ints.
 
