@@ -99,6 +99,37 @@ cd cs102/programs
 ```
 and use the relative path to navigate there.
 
+### Example Task List
+In order to understand how using commands works, I've written a task list of things I need to accompish using Unix, and the commands I will use to accomplish these tasks.
+
+My task list:
+
+    - Make a directory called cs102 in the home directory
+
+    - Make a directory inside cs102 called labs
+
+    - Make a directory inside cs102 called examples
+
+    - Verify that all directories are empty (so I can use these in the future to store labs and examples)
+
+How to accomplish these tasks in the Unix command line interface (assume we start in the home directory):
+
+```console
+mkdir cs102
+cd cs102
+ls
+mkdir labs
+cd cs102
+ls
+cd ..
+mkdir examples
+cd examples
+ls
+cd ../..
+```
+
+Above, I use `mkdir` to make the directories, `cd` to change directories (two dots, `..`, means the parent directory), and `ls` to list the contents of the directory to verify that they are empty.
+
 # How We Will Program in CS102
 Everything we've covered so far is just about **navigating a new operating system using just the command line**. We haven't talked about coding up a program at all! That's what we will cover next.
 
