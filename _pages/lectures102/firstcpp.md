@@ -1,5 +1,5 @@
 ---
-permalink: /lectures102/ioindepth/
+permalink: /lectures102/basiccpp/
 title: "Basic C++"
 author_profile: false
 classes: wide
