@@ -77,6 +77,20 @@ Any other data type (like floats above) don't need changing.
 Another Java/C++ difference is that `switch` statements cannot be switched on strings. See the `switch` notes for more information here.
 
 -----
+Another is that `final` in Java is called `const` in C++. There are more uses of `const` that we will get to later in the course, but if you want to make a variable read-only, this is how you do it. Conventionally, you should have read-only variable names as screaming snake case.
+
+You can put `const` before or after the type name in C++.
+
+Example (Java):
+```java
+final int SHORT_GAME = 5;
+```
+Example (C++):
+```c++
+const int SHORT_GAME = 5;
+int const LONG_GAME = 10;
+```
+------
 
 One last one: we got used to closing the Scanner when we are done receiving input. You don't close cin - one less thing to worry about!
 
