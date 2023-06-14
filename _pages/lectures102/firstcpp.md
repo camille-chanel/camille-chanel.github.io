@@ -50,11 +50,35 @@ https://cplusplus.com/doc/tutorial/basic_io/
 # Minor (but Common) Differences: Java vs C++
 Besides the "skeletal" differences above with `main`, there are a few other common hiccups between Java and C++ for beginning programmers.
 
+-----
+
 The first one is that the data type `string` is not capitalized in C++ (it is in Java). Here's an example of declaring some strings in C++:
 
 ```c++
 string firstName, lastName;
 string streetName, streetType;
 ```
+-----
+Another is that printf() can be used exactly like System.out.format() in Java, but if you want to print a formatted string, you must change it to a c-style string using `.c_str()` (more on what this is later, refers to the C language vs C++).
 
-The second is that you use cin/cout for input and output.
+For example,
+```java
+System.out.format("Name: %s GPA: %.2f", firstName, gpa);
+```
+is equivalent to
+```c++
+printf("Name: %s GPA: %.2f", firstName.c_str(), gpa);
+```
+
+Any other data type (like floats above) don't need changing.
+
+-----
+
+Another Java/C++ difference is that `switch` statements cannot be switched on strings. See the `switch` notes for more information here.
+
+-----
+
+One last one: we got used to closing the Scanner when we are done receiving input. You don't close cin - one less thing to worry about!
+
+----
+There are other differences when you learn more material, but it is comes to using I/O, conditional statements, and loops, these are the issues I see students run into the most. Thankfully, the syntax for all types of loops, if statements, and switch statements are exactly the same!
